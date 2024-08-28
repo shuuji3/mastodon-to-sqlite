@@ -71,6 +71,7 @@ def build_database(db: Database):
                 "replies_count": int,
                 "favourites_count": int,
                 "reblogs_count": int,
+                "url": int,
             },
             pk="id",
             foreign_keys=(("account_id", "accounts", "id"),),
@@ -242,6 +243,7 @@ def transformer_status(status: Dict[str, Any]):
         "reblogs_count",
         "favourites_count",
         "replies_count",
+        "url",
     )
     to_remove = [k for k in status.keys() if k not in to_keep]
     for key in to_remove:
